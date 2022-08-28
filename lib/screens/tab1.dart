@@ -24,114 +24,112 @@ class _TabBar1State extends State<TabBar1> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
-      child: Container(
-        child: Column(
-          children: [
-            DropdownButtonFormField(
-              value: _selectBranch,
-              hint: Text(
-                "اختر الفرع",
-                style: GoogleFonts.tajawal(
+      child: Column(
+        children: [
+          DropdownButtonFormField(
+            value: _selectBranch,
+            hint: Text(
+              "اختر الفرع",
+              style: GoogleFonts.tajawal(
+                  fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            // style: GoogleFonts.tajawal(
+            //     fontSize: 16, fontWeight: FontWeight.bold),
+            items: _branch
+                .map((e) => DropdownMenuItem(
+                      child: Text(e),
+                      value: e,
+                    ))
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                _selectBranch = value as String;
+              });
+            },
+            icon: const Icon(
+              Icons.arrow_drop_down_circle,
+              color: Colors.green,
+            ),
+            decoration: InputDecoration(
+                enabledBorder:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10))),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          TextFormField(
+            controller: _textEditingController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 22, horizontal: 10),
+                hintText: "ادخل المعدل",
+                suffixIcon: const Icon(
+                  Icons.percent,
+                  color: Colors.green,
+                ),
+                hintStyle: GoogleFonts.tajawal(
                     fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              // style: GoogleFonts.tajawal(
-              //     fontSize: 16, fontWeight: FontWeight.bold),
-              items: _branch
-                  .map((e) => DropdownMenuItem(
-                        child: Text(e),
-                        value: e,
-                      ))
-                  .toList(),
-              onChanged: (value) {
-                setState(() {
-                  _selectBranch = value as String;
-                });
-              },
-              icon: Icon(
-                Icons.arrow_drop_down_circle,
-                color: Colors.green,
-              ),
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10))),
+                enabledBorder:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10))),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          DropdownButtonFormField(
+            // style: GoogleFonts.tajawal(
+            //     fontSize: 16, fontWeight: FontWeight.bold),
+            value: _selectGender,
+            hint: Text(
+              "اختر الجنس",
+              style: GoogleFonts.tajawal(
+                  fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: 15,
+            items: _gender
+                .map((e) => DropdownMenuItem(
+                      child: Text(e),
+                      value: e,
+                    ))
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                _selectGender = value as String;
+              });
+            },
+            icon: const Icon(
+              Icons.arrow_drop_down_circle,
+              color: Colors.green,
             ),
-            TextFormField(
-              controller: _textEditingController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 22, horizontal: 10),
-                  hintText: "ادخل المعدل",
-                  suffixIcon: Icon(
-                    Icons.percent,
-                    color: Colors.green,
-                  ),
-                  hintStyle: GoogleFonts.tajawal(
-                      fontSize: 16, fontWeight: FontWeight.bold),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10))),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            DropdownButtonFormField(
-              // style: GoogleFonts.tajawal(
-              //     fontSize: 16, fontWeight: FontWeight.bold),
-              value: _selectGender,
-              hint: Text(
-                "اختر الجنس",
-                style: GoogleFonts.tajawal(
-                    fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              items: _gender
-                  .map((e) => DropdownMenuItem(
-                        child: Text(e),
-                        value: e,
-                      ))
-                  .toList(),
-              onChanged: (value) {
-                setState(() {
-                  _selectGender = value as String;
-                });
-              },
-              icon: Icon(
-                Icons.arrow_drop_down_circle,
-                color: Colors.green,
-              ),
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10))),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
-                      onPrimary: Colors.white,
-                      padding: EdgeInsets.all(10)),
-                  onPressed: () {
-                    printData();
-                  },
-                  child: Text(
-                    "فحص",
-                    style: GoogleFonts.tajawal(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  )),
-            ),
-          ],
-        ),
+            decoration: InputDecoration(
+                enabledBorder:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10))),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green,
+                    onPrimary: Colors.white,
+                    padding: EdgeInsets.all(10)),
+                onPressed: () {
+                  printData();
+                },
+                child: Text(
+                  "فحص",
+                  style: GoogleFonts.tajawal(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                )),
+          ),
+        ],
       ),
     );
   }
@@ -143,64 +141,78 @@ class _TabBar1State extends State<TabBar1> {
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type1']) {
         print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        print(
+            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        print(DataSource.data.elementAt(index)['type1']);
+      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
+          _selectGender == "ذكر" &&
+          _selectBranch == DataSource.data.elementAt(index)['type2']) {
+        print(DataSource.data.elementAt(index)['specialization']);
+        print(
+            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        print(DataSource.data.elementAt(index)['type2']);
+      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
+          _selectGender == "ذكر" &&
+          _selectBranch == DataSource.data.elementAt(index)['type3']) {
+        print(DataSource.data.elementAt(index)['specialization']);
+        print(
+            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        print(DataSource.data.elementAt(index)['type3']);
+      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
+          _selectGender == "ذكر" &&
+          _selectBranch == DataSource.data.elementAt(index)['type4']) {
+        print(DataSource.data.elementAt(index)['specialization']);
+        print(
+            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        print(DataSource.data.elementAt(index)['type4']);
+      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
+          _selectGender == "ذكر" &&
+          _selectBranch == DataSource.data.elementAt(index)['type5']) {
+        print(DataSource.data.elementAt(index)['specialization']);
+        print(
+            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        print(DataSource.data.elementAt(index)['type5']);
+      }
+      /*******************************female ****************************************/
+      else if (value >= DataSource.data.elementAt(index)['average']['female'] &&
+          _selectGender == "انثى" &&
+          _selectBranch == DataSource.data.elementAt(index)['type1']) {
+        print(DataSource.data.elementAt(index)['specialization']);
+        print(
+            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
         print(DataSource.data.elementAt(index)['type1']);
       } else if (value >=
-              DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" && _selectBranch == DataSource.data.elementAt(index)['type2']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-            print(DataSource.data.elementAt(index)['type2']);
-      }else if (value >=
-              DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" && _selectBranch == DataSource.data.elementAt(index)['type3']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-            print(DataSource.data.elementAt(index)['type3']);
-      }else if (value >=
-              DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" && _selectBranch == DataSource.data.elementAt(index)['type4']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-            print(DataSource.data.elementAt(index)['type4']);
-      }else if (value >=
-              DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" && _selectBranch == DataSource.data.elementAt(index)['type5']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-            print(DataSource.data.elementAt(index)['type5']);
-      } 
-      /*******************************female ****************************************/
-      else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" && _selectBranch == DataSource.data.elementAt(index)['type1']) {
+          _selectGender == "انثى" &&
+          _selectBranch == DataSource.data.elementAt(index)['type2']) {
         print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-            print(DataSource.data.elementAt(index)['type1']);
-      }else if (value >=
+        print(
+            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
+        print(DataSource.data.elementAt(index)['type2']);
+      } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" && _selectBranch == DataSource.data.elementAt(index)['type2']) {
+          _selectGender == "انثى" &&
+          _selectBranch == DataSource.data.elementAt(index)['type3']) {
         print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-            print(DataSource.data.elementAt(index)['type2']);
-      }else if (value >=
+        print(
+            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
+        print(DataSource.data.elementAt(index)['type3']);
+      } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" && _selectBranch == DataSource.data.elementAt(index)['type3']) {
+          _selectGender == "انثى" &&
+          _selectBranch == DataSource.data.elementAt(index)['type4']) {
         print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-            print(DataSource.data.elementAt(index)['type3']);
-      }else if (value >=
+        print(
+            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
+        print(DataSource.data.elementAt(index)['type4']);
+      } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" && _selectBranch == DataSource.data.elementAt(index)['type4']) {
+          _selectGender == "انثى" &&
+          _selectBranch == DataSource.data.elementAt(index)['type5']) {
         print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-            print(DataSource.data.elementAt(index)['type4']);
-      }else if (value >=
-              DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" && _selectBranch == DataSource.data.elementAt(index)['type5']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print("The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-            print(DataSource.data.elementAt(index)['type5']);
+        print(
+            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
+        print(DataSource.data.elementAt(index)['type5']);
       }
       // Navigator.push(
       //     context,

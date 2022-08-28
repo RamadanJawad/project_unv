@@ -15,7 +15,7 @@ class _TabBar2State extends State<TabBar2> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.only(top: 50),
+      margin: const EdgeInsetsDirectional.only(top: 50),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -23,21 +23,17 @@ class _TabBar2State extends State<TabBar2> {
             SizedBox(
               width: double.infinity,
               height: 70,
-              child: Card(
-                color: Colors.orange,
-                child: Center(
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.orange,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
                   child: Text(
                     "برامج البكالوريوس",
-                    style: GoogleFonts.tajawal(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+                    style: GoogleFonts.tajawal(fontSize: 25),
+                  )),
             ),
             SizedBox(
               height: 10,
@@ -45,20 +41,35 @@ class _TabBar2State extends State<TabBar2> {
             SizedBox(
               width: double.infinity,
               height: 70,
-              child: Card(
-                color: Colors.purple,
-                child: Center(
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.purple,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
                   child: Text(
-                    "برامج البكالوريوس",
-                    style: GoogleFonts.tajawal(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+                    "برامج الدبلوم",
+                    style: GoogleFonts.tajawal(fontSize: 25),
+                  )),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: double.infinity,
+              height: 70,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.teal,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                  child: Text(
+                    "برامج الماجستير",
+                    style: GoogleFonts.tajawal(fontSize: 25),
+                  )),
             ),
           ],
         ),
