@@ -152,6 +152,16 @@ class _TabBar1State extends State<TabBar1> {
         //               price: DataSource.data[index]['price'].toString(),
         //             )));
       }
+      // else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
+      //     _selectBranch == DataSource.data.elementAt(index)['type1'] &&
+      //     _selectGender == "male") {
+      //   print(DataSource.data[index]['specialization']);
+      //   print(DataSource.data[index]['type1']);
+      //   print(
+      //       "The gender is male=${DataSource.data[index]['average']['male']}");
+      //   print(
+      //       "===========================================================================");
+      // }
     }
   }
 }
