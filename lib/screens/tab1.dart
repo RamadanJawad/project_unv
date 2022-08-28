@@ -142,6 +142,8 @@ class _TabBar1State extends State<TabBar1> {
       if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectBranch == DataSource.data.elementAt(index)['type1'] &&
           _selectGender == "ذكر") {
+        print(DataSource.data[index]['specialization']);
+        print(DataSource.data[index]['average']['male']);
 
         // Navigator.push(
         //     context,
