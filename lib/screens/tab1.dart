@@ -139,12 +139,13 @@ class _TabBar1State extends State<TabBar1> {
   void printData() {
     int value = int.parse(_textEditingController.text);
     for (int index = 0; index < DataSource.data.length; index++) {
-      if (value >= DataSource.data.elementAt(index)['average']['male'] &&
-          _selectBranch == DataSource.data.elementAt(index)['type1'] &&
-          _selectGender == "ذكر") {
-        print(DataSource.data[index]['specialization']);
-        print(DataSource.data[index]['average']['male']);
-
+      if (value >= DataSource.data.elementAt(index)['average']['male'] && _selectGender=="ذكر"){
+          print(DataSource.data.elementAt(index)['specialization']);
+          print("The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
+        }else if(value >= DataSource.data.elementAt(index)['average']['female'] && _selectGender=="انثى"){
+          print(DataSource.data.elementAt(index)['specialization']);
+          print("The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
+        }
         // Navigator.push(
         //     context,
         //     MaterialPageRoute(
@@ -156,4 +157,4 @@ class _TabBar1State extends State<TabBar1> {
       }
     }
   }
-}
+
