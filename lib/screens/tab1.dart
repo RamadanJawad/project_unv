@@ -16,7 +16,7 @@ class TabBar1 extends StatefulWidget {
 class _TabBar1State extends State<TabBar1> {
   TextEditingController _textEditingController = TextEditingController();
   final _branch = ["علمي", "أدبي", "شرعي", "صناعي", "ريادة واعمال"];
-  final _gender = ["male", "female"];
+  final _gender = ["ذكر", "انثى"];
   String? _selectBranch;
   String? _selectGender;
   List data = [];
@@ -141,16 +141,16 @@ class _TabBar1State extends State<TabBar1> {
     for (int index = 0; index < DataSource.data.length; index++) {
       if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectBranch == DataSource.data.elementAt(index)['type1'] &&
-          _selectGender == "male") {
+          _selectGender == "ذكر") {
 
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SelectedSpecialties(
-                      specialization: DataSource.data[index]['specialization'],
-                      average: DataSource.data[index]['average']['male'].toString(),
-                      price: DataSource.data[index]['price'].toString(),
-                    )));
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context) => SelectedSpecialties(
+        //               specialization: DataSource.data[index]['specialization'],
+        //               average: DataSource.data[index]['average']['male'].toString(),
+        //               price: DataSource.data[index]['price'].toString(),
+        //             )));
       }
       // else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
       //     _selectBranch == DataSource.data.elementAt(index)['type1'] &&
