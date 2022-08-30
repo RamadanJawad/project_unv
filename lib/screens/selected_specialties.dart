@@ -4,14 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:pro_unv/data/data.dart';
 
 class SelectedSpecialties extends StatefulWidget {
-  final String specialization;
-  final String price;
-  final String average;
+  final List data;
   const SelectedSpecialties({
     Key? key,
-    required this.specialization,
-    required this.price,
-    required this.average,
+    required this.data,
   }) : super(key: key);
 
   @override
@@ -25,15 +21,16 @@ class _SelectedSpecialtiesState extends State<SelectedSpecialties> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Data"),
+          backgroundColor: Colors.green,
+          title: Text("كافة البيانات"),
         ),
         body: ListView.builder(
-            itemCount: 5,
+            itemCount: widget.data.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text("${widget.specialization}"),
-                subtitle: Text("${widget.average}"),
-                leading: Text("${widget.price}"),
+                title: Text("${widget.data[index]["specialization"]}"),
+                subtitle: Text("${widget.data[index]['average']}"),
+                leading: Text("${widget.data[index]['price']}"),
               );
             }),
       ),

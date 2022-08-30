@@ -19,7 +19,14 @@ class _TabBar1State extends State<TabBar1> {
   final _gender = ["ذكر", "انثى"];
   String? _selectBranch;
   String? _selectGender;
-  List data = [];
+  late List allData;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    allData = [];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,8 +40,6 @@ class _TabBar1State extends State<TabBar1> {
               style: GoogleFonts.tajawal(
                   fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            // style: GoogleFonts.tajawal(
-            //     fontSize: 16, fontWeight: FontWeight.bold),
             items: _branch
                 .map((e) => DropdownMenuItem(
                       child: Text(e),
@@ -81,8 +86,6 @@ class _TabBar1State extends State<TabBar1> {
             height: 15,
           ),
           DropdownButtonFormField(
-            // style: GoogleFonts.tajawal(
-            //     fontSize: 16, fontWeight: FontWeight.bold),
             value: _selectGender,
             hint: Text(
               "اختر الجنس",
@@ -121,7 +124,14 @@ class _TabBar1State extends State<TabBar1> {
                     onPrimary: Colors.white,
                     padding: EdgeInsets.all(10)),
                 onPressed: () {
-                  printData();
+                  setState(() {
+                    if (allData.isEmpty) {
+                      printData();
+                    } else if (allData.isNotEmpty) {
+                      allData.clear();
+                      printData();
+                    }
+                  });
                 },
                 child: Text(
                   "فحص",
@@ -140,88 +150,125 @@ class _TabBar1State extends State<TabBar1> {
       if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type1']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-        print(DataSource.data.elementAt(index)['type1']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['male'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type2']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-        print(DataSource.data.elementAt(index)['type2']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['male'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type3']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-        print(DataSource.data.elementAt(index)['type3']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['male'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type4']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-        print(DataSource.data.elementAt(index)['type4']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['male'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type5']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is male : ${DataSource.data.elementAt(index)['average']['male']}");
-        print(DataSource.data.elementAt(index)['type5']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['male'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       }
       /*******************************female ****************************************/
       else if (value >= DataSource.data.elementAt(index)['average']['female'] &&
           _selectGender == "انثى" &&
           _selectBranch == DataSource.data.elementAt(index)['type1']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-        print(DataSource.data.elementAt(index)['type1']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['female'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
           _selectGender == "انثى" &&
           _selectBranch == DataSource.data.elementAt(index)['type2']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-        print(DataSource.data.elementAt(index)['type2']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['female'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
           _selectGender == "انثى" &&
           _selectBranch == DataSource.data.elementAt(index)['type3']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-        print(DataSource.data.elementAt(index)['type3']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['female'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
           _selectGender == "انثى" &&
           _selectBranch == DataSource.data.elementAt(index)['type4']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-        print(DataSource.data.elementAt(index)['type4']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['female'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       } else if (value >=
               DataSource.data.elementAt(index)['average']['female'] &&
           _selectGender == "انثى" &&
           _selectBranch == DataSource.data.elementAt(index)['type5']) {
-        print(DataSource.data.elementAt(index)['specialization']);
-        print(
-            "The gender is female : ${DataSource.data.elementAt(index)['average']['female']}");
-        print(DataSource.data.elementAt(index)['type5']);
+        allData.addAll([
+          {
+            "specialization":
+                DataSource.data.elementAt(index)['specialization'],
+            "average": DataSource.data.elementAt(index)['average']['female'],
+            "price": DataSource.data.elementAt(index)['price']
+          }
+        ]);
       }
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //         builder: (context) => SelectedSpecialties(
-      //               specialization: DataSource.data[index]['specialization'],
-      //               average: DataSource.data[index]['average']['male'].toString(),
-      //               price: DataSource.data[index]['price'].toString(),
-      //             )));
     }
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => SelectedSpecialties(data: allData)));
+    print(allData);
   }
 }

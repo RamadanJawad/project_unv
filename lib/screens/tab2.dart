@@ -24,7 +24,9 @@ class _TabBar2State extends State<TabBar2> {
               width: double.infinity,
               height: 70,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/all_specialties_screen');
+                  },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.orange,
                       onPrimary: Colors.white,
