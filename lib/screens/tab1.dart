@@ -22,7 +22,6 @@ class _TabBar1State extends State<TabBar1> {
   late List allData;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     allData = [];
   }
@@ -61,7 +60,7 @@ class _TabBar1State extends State<TabBar1> {
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10))),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           TextFormField(
@@ -69,7 +68,7 @@ class _TabBar1State extends State<TabBar1> {
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 22, horizontal: 10),
+                    const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
                 hintText: "ادخل المعدل",
                 suffixIcon: const Icon(
                   Icons.percent,
@@ -82,7 +81,7 @@ class _TabBar1State extends State<TabBar1> {
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10))),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           DropdownButtonFormField(
@@ -113,7 +112,7 @@ class _TabBar1State extends State<TabBar1> {
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10))),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           SizedBox(
@@ -122,7 +121,7 @@ class _TabBar1State extends State<TabBar1> {
                 style: ElevatedButton.styleFrom(
                     primary: Colors.green,
                     onPrimary: Colors.white,
-                    padding: EdgeInsets.all(10)),
+                    padding: const EdgeInsets.all(10)),
                 onPressed: () {
                   setState(() {
                     if (allData.isEmpty) {
@@ -145,7 +144,8 @@ class _TabBar1State extends State<TabBar1> {
   }
 
   void printData() {
-    int value = int.parse(_textEditingController.text);
+    double value = double.parse(_textEditingController.text);
+    
     for (int index = 0; index < DataSource.data.length; index++) {
       if (value >= DataSource.data.elementAt(index)['average']['male'] &&
           _selectGender == "ذكر" &&
@@ -269,6 +269,5 @@ class _TabBar1State extends State<TabBar1> {
         context,
         MaterialPageRoute(
             builder: (context) => SelectedSpecialties(data: allData)));
-    print(allData);
   }
 }

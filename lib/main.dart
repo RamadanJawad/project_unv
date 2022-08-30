@@ -1,4 +1,3 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:pro_unv/screens/all_specialties.dart';
 import 'package:pro_unv/screens/home_screen.dart';
@@ -21,10 +20,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: AnimatedSplashScreen(
-      //     splash: 'images/logo.png',
-      //     nextScreen: HomeScreen(),
-      //     splashIconSize: 300),
       initialRoute: '/launch_screen',
       routes: {
         '/launch_screen':(context) => LaunchScrren(),
