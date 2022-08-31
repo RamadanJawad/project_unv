@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_unv/data/data.dart';
-import 'package:pro_unv/screens/screen3.dart';
+import 'package:pro_unv/screens/bachelor_screen.dart';
 
 class AllSpecialties extends StatefulWidget {
   const AllSpecialties({Key? key}) : super(key: key);
@@ -11,7 +11,6 @@ class AllSpecialties extends StatefulWidget {
 }
 
 class _AllSpecialtiesState extends State<AllSpecialties> {
-
   List all_collage = [
     {"specialization": "كلية الحاسبات وتكنولوجيا المعلومات"},
     {"specialization": "كلية التربية"},
@@ -28,7 +27,6 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
     super.initState();
     data = [];
   }
-
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -85,7 +83,6 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
           )),
     );
   }
-
   void readData(int index) {
     for (int element = 0; element < DataSource.data.length; element++) {
       if (DataSource.data[element]['id'] == index) {
@@ -94,8 +91,7 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
         );
       }
     }
-    print(data);
-    Navigator.push(
-      context, MaterialPageRoute(builder: (context) => Screen3(data: data)));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => BachelorScreen(data: data)));
   }
 }

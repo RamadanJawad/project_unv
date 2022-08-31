@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_unv/data/data.dart';
-import 'package:pro_unv/screens/screen2.dart';
+import 'package:pro_unv/screens/diploma_screen.dart';
+import 'package:pro_unv/screens/master_screen.dart';
 
 class TabBar2 extends StatefulWidget {
   const TabBar2({Key? key}) : super(key: key);
@@ -46,7 +44,7 @@ class _TabBar2State extends State<TabBar2> {
                     style: GoogleFonts.tajawal(fontSize: 25),
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
@@ -54,9 +52,7 @@ class _TabBar2State extends State<TabBar2> {
               height: 70,
               child: ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      readData();
-                    });
+                      readDiploma();
                   },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.purple,
@@ -68,14 +64,16 @@ class _TabBar2State extends State<TabBar2> {
                     style: GoogleFonts.tajawal(fontSize: 25),
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
               width: double.infinity,
               height: 70,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    readMaster();
+                  },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.teal,
                       onPrimary: Colors.white,
@@ -92,7 +90,7 @@ class _TabBar2State extends State<TabBar2> {
     );
   }
 
-  void readData() {
+  void readDiploma() {
     for (int element = 0; element < DataSource.data.length; element++) {
       if (DataSource.data[element]['id'] == 8) {
         data.add(
@@ -100,8 +98,19 @@ class _TabBar2State extends State<TabBar2> {
         );
       }
     }
-    print(data);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => Screen2(data: data)));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => DiplomaScreen(data: data)));
+  }
+
+  void readMaster() {
+    for (int element = 0; element < DataSource.data.length; element++) {
+      if (DataSource.data[element]['id'] == 9) {
+        data.add(
+          DataSource.data.elementAt(element)['specialization'],
+        );
+      }
+    }
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => MasterScreen(data: data)));
   }
 }
