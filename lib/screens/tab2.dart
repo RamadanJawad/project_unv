@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro_unv/data/data.dart';
+import 'package:pro_unv/screens/screen2.dart';
 
 class TabBar2 extends StatefulWidget {
   const TabBar2({Key? key}) : super(key: key);
@@ -12,10 +14,17 @@ class TabBar2 extends StatefulWidget {
 }
 
 class _TabBar2State extends State<TabBar2> {
+  late List data;
+  @override
+  void initState() {
+    super.initState();
+    data = [];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsetsDirectional.only(top: 50),
+      margin: const EdgeInsetsDirectional.only(top: 20),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -44,7 +53,11 @@ class _TabBar2State extends State<TabBar2> {
               width: double.infinity,
               height: 70,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      readData();
+                    });
+                  },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.purple,
                       onPrimary: Colors.white,
@@ -77,5 +90,18 @@ class _TabBar2State extends State<TabBar2> {
         ),
       ),
     );
+  }
+
+  void readData() {
+    for (int element = 0; element < DataSource.data.length; element++) {
+      if (DataSource.data[element]['id'] == 8) {
+        data.add(
+          DataSource.data.elementAt(element)['specialization'],
+        );
+      }
+    }
+    print(data);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Screen2(data: data)));
   }
 }
