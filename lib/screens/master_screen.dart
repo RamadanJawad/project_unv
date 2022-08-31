@@ -20,23 +20,23 @@ class MasterScreen extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
-              itemCount:data.length,
-              itemBuilder: (context, index) {
-                return SizedBox(
-                  height: 80,
-                  child: Card(
-                    elevation: 5,
-                    margin: const EdgeInsets.all(10),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    color: Colors.grey,
-                    child: Center(
-                      child: Text("${data[index]}",
-                          style: GoogleFonts.cairo(fontSize: 22)),
-                    ),
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              return SizedBox(
+                height: 80,
+                child: Card(
+                  elevation: 5,
+                  margin: const EdgeInsets.all(10),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey,
+                  child: Center(
+                    child: Text("${data[index]}",
+                        style: GoogleFonts.cairo(fontSize: 22)),
                   ),
-                );
-              }),
+                ),
+              );
+            }),
       ),
     );
   }

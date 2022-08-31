@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen>
       textDirection: TextDirection.rtl,
       child: Scaffold(
           appBar: AppBar(
-              backgroundColor: Colors.green,
+
               title: Text(
                 "الواجهة الرئيسية",
                 style: GoogleFonts.cairo(),

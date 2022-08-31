@@ -22,7 +22,7 @@ class _SelectedSpecialtiesState extends State<SelectedSpecialties> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
+
           title: Text(
             "التخصصات المتاحة",
             style: GoogleFonts.cairo(),
