@@ -22,11 +22,16 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
     {"specialization": "كلية العلوم الطبية"},
   ];
   late List data;
+
+  List colorSpe = [
+    
+  ];
   @override
   void initState() {
     super.initState();
     data = [];
   }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -64,8 +69,8 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
                               });
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.grey,
-                                onPrimary: Colors.white,
+                                backgroundColor: Colors.grey,
+                                foregroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
                             child: Text(
@@ -83,6 +88,7 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
           )),
     );
   }
+
   void readData(int index) {
     for (int element = 0; element < DataSource.data.length; element++) {
       if (DataSource.data[element]['id'] == index) {

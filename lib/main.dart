@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro_unv/screens/all_specialties.dart';
+import 'package:pro_unv/screens/details_screen.dart';
 import 'package:pro_unv/screens/home_screen.dart';
 import 'package:pro_unv/screens/launch_screen.dart';
 
@@ -24,6 +25,7 @@ class _MyAppState extends State<MyApp> {
         '/launch_screen':(context) => LaunchScrren(),
         '/home_screen':(context) => HomeScreen(),
         '/all_specialties_screen':(context) => AllSpecialties(),
+        '/details_screen':(context) => DetailsScreen(),
       },
     );
   }

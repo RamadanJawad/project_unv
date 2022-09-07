@@ -20,12 +20,8 @@ class _TabBar1State extends State<TabBar1> {
   final _gender = ["ذكر", "انثى"];
   String? _selectBranch;
   String? _selectGender;
-  late List allData;
-  @override
-  void initState() {
-    super.initState();
-    allData = [];
-  }
+
+  late List allData=[];
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +64,6 @@ class _TabBar1State extends State<TabBar1> {
             ),
             TextFormField(
               controller: _textEditingController,
-              inputFormatters: [
-                LengthLimitingTextInputFormatter(4),
-              ],
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   contentPadding:
@@ -123,25 +116,23 @@ class _TabBar1State extends State<TabBar1> {
             ),
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
-                      onPrimary: Colors.white,
-                      padding: const EdgeInsets.all(10)),
+              height: 50,
+              child: MaterialButton(
+                  color: Colors.green,
                   onPressed: () {
-                    setState(() {
-                      if (allData.isEmpty) {
-                        printData();
-                      } else if (allData.isNotEmpty) {
-                        allData.clear();
-                        printData();
-                      }
-                    });
+                    if (allData.isEmpty) {
+                      printData();
+                    } else if (allData.isNotEmpty) {
+                      allData.clear();
+                      printData();
+                    }
                   },
                   child: Text(
                     "فحص",
                     style: GoogleFonts.tajawal(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   )),
             ),
           ],
@@ -152,123 +143,124 @@ class _TabBar1State extends State<TabBar1> {
 
   void printData() {
     double value = double.parse(_textEditingController.text);
+    
     for (int index = 0; index < DataSource.data.length; index++) {
-      if (value >= DataSource.data.elementAt(index)['average']['male'] &&
+      if (value >= DataSource.data.elementAt(index)['male'] &&
           _selectGender == "ذكر" &&
           _selectBranch == DataSource.data.elementAt(index)['type1']) {
         allData.addAll([
           {
             "specialization":
                 DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['male'],
+            "average": DataSource.data.elementAt(index)['male'],
             "price": DataSource.data.elementAt(index)['price']
           }
         ]);
-      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" &&
-          _selectBranch == DataSource.data.elementAt(index)['type2']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['male'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" &&
-          _selectBranch == DataSource.data.elementAt(index)['type3']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['male'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" &&
-          _selectBranch == DataSource.data.elementAt(index)['type4']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['male'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >= DataSource.data.elementAt(index)['average']['male'] &&
-          _selectGender == "ذكر" &&
-          _selectBranch == DataSource.data.elementAt(index)['type5']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['male'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      }
-      /*******************************female ****************************************/
-      else if (value >= DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" &&
-          _selectBranch == DataSource.data.elementAt(index)['type1']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['female'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >=
-              DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" &&
-          _selectBranch == DataSource.data.elementAt(index)['type2']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['female'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >=
-              DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" &&
-          _selectBranch == DataSource.data.elementAt(index)['type3']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['female'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >=
-              DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" &&
-          _selectBranch == DataSource.data.elementAt(index)['type4']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['female'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
-      } else if (value >=
-              DataSource.data.elementAt(index)['average']['female'] &&
-          _selectGender == "انثى" &&
-          _selectBranch == DataSource.data.elementAt(index)['type5']) {
-        allData.addAll([
-          {
-            "specialization":
-                DataSource.data.elementAt(index)['specialization'],
-            "average": DataSource.data.elementAt(index)['average']['female'],
-            "price": DataSource.data.elementAt(index)['price']
-          }
-        ]);
+        } else if (value >= DataSource.data.elementAt(index)['male'] &&
+            _selectGender == "ذكر" &&
+            _selectBranch == DataSource.data.elementAt(index)['type2']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['male'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >= DataSource.data.elementAt(index)['male'] &&
+            _selectGender == "ذكر" &&
+            _selectBranch == DataSource.data.elementAt(index)['type3']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['male'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >= DataSource.data.elementAt(index)['male'] &&
+            _selectGender == "ذكر" &&
+            _selectBranch == DataSource.data.elementAt(index)['type4']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['male'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >= DataSource.data.elementAt(index)['male'] &&
+            _selectGender == "ذكر" &&
+            _selectBranch == DataSource.data.elementAt(index)['type5']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['male'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        }
+        /*******************************female ****************************************/
+        else if (value >= DataSource.data.elementAt(index)['female'] &&
+            _selectGender == "انثى" &&
+            _selectBranch == DataSource.data.elementAt(index)['type1']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['female'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >=
+                DataSource.data.elementAt(index)['female'] &&
+            _selectGender == "انثى" &&
+            _selectBranch == DataSource.data.elementAt(index)['type2']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['female'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >=
+                DataSource.data.elementAt(index)['female'] &&
+            _selectGender == "انثى" &&
+            _selectBranch == DataSource.data.elementAt(index)['type3']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['female'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >=
+                DataSource.data.elementAt(index)['female'] &&
+            _selectGender == "انثى" &&
+            _selectBranch == DataSource.data.elementAt(index)['type4']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['female'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
+        } else if (value >=
+                DataSource.data.elementAt(index)['female'] &&
+            _selectGender == "انثى" &&
+            _selectBranch == DataSource.data.elementAt(index)['type5']) {
+          allData.addAll([
+            {
+              "specialization":
+                  DataSource.data.elementAt(index)['specialization'],
+              "average": DataSource.data.elementAt(index)['female'],
+              "price": DataSource.data.elementAt(index)['price']
+            }
+          ]);
       }
     }
     Navigator.push(

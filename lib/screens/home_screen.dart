@@ -14,9 +14,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  List<Widget> _screens = [
-    TabBar1(),
-    TabBar2(),
+  final List<Widget> _screens = [
+    const TabBar1(),
+    const TabBar2(),
   ];
   late TabController _tabController =
       TabController(length: _screens.length, vsync: this);
@@ -70,14 +70,19 @@ class _HomeScreenState extends State<HomeScreen>
                   ],
                 ),
               ),
-              ListTile(
-                title: Text(
-                  "المنح والاعفاءات",
-                  style: GoogleFonts.cairo(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/details_screen');
+                },
+                child: ListTile(
+                  title: Text(
+                    "المنح والاعفاءات",
+                    style: GoogleFonts.cairo(),
+                  ),
+                  trailing: Icon(Icons.book_sharp),
                 ),
-                trailing: Icon(Icons.book_sharp),
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 thickness: 1,
                 endIndent: 10,
@@ -90,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 trailing: Icon(Icons.ac_unit),
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 thickness: 1,
                 endIndent: 10,
@@ -103,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 trailing: Icon(Icons.info),
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 thickness: 1,
                 endIndent: 10,

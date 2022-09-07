@@ -12,11 +12,13 @@ class TabBar2 extends StatefulWidget {
 }
 
 class _TabBar2State extends State<TabBar2> {
-  late List data;
+  late List data1;
+  late List data2;
   @override
   void initState() {
     super.initState();
-    data = [];
+    data1 = [];
+    data2 = [];
   }
 
   @override
@@ -52,7 +54,7 @@ class _TabBar2State extends State<TabBar2> {
               height: 70,
               child: ElevatedButton(
                   onPressed: () {
-                      readDiploma();
+                    readDiploma();
                   },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.purple,
@@ -93,24 +95,24 @@ class _TabBar2State extends State<TabBar2> {
   void readDiploma() {
     for (int element = 0; element < DataSource.data.length; element++) {
       if (DataSource.data[element]['id'] == 8) {
-        data.add(
+        data1.add(
           DataSource.data.elementAt(element)['specialization'],
         );
       }
     }
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => DiplomaScreen(data: data)));
+        MaterialPageRoute(builder: (context) => DiplomaScreen(data: data1)));
   }
 
   void readMaster() {
-    for (int element = 0; element < DataSource.data.length; element++) {
-      if (DataSource.data[element]['id'] == 9) {
-        data.add(
-          DataSource.data.elementAt(element)['specialization'],
+    for (int element = 0; element < DataSource.data2.length; element++) {
+      if (DataSource.data2[element]['id'] == 9) {
+        data2.add(
+          DataSource.data2.elementAt(element)['specialization'],
         );
       }
     }
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => MasterScreen(data: data)));
+        MaterialPageRoute(builder: (context) => MasterScreen(data: data2)));
   }
 }
