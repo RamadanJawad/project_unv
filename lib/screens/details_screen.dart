@@ -50,7 +50,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       }
                     });
                   },
-                  child: Text(DataDetails.data[index]['name']),
+                  child: ListTile(
+                    title: Text(
+                      " * ${DataDetails.data[index]['name']}",
+                      style: GoogleFonts.cairo(fontSize: 20),
+                    ),
+                    subtitle: Text(
+                      "${DataDetails.data[index]['start']}",
+                      style: GoogleFonts.cairo(fontSize: 16),
+                    ),
+                    trailing:
+                        Text("${DataDetails.data[index]['exemption rate']}"),
+                  ),
                 );
               })),
     );

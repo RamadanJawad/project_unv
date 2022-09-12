@@ -21,10 +21,17 @@ class _Screen4State extends State<Screen4> {
           title: Text("تفاصيل المنح والاعفاءات", style: GoogleFonts.cairo()),
           backgroundColor: Colors.green,
         ),
-        body: ListView.builder(
+        body: ListView.separated(
+            separatorBuilder: (context, index) {
+              return Divider(
+                color: Colors.grey,
+                height: 2,
+                thickness: 2,
+              );
+            },
             itemCount: widget.data.length,
             itemBuilder: (context, index) {
-              return Text("${widget.data[index]}",
+              return Text("${widget.data[index]}\n",
                   style: GoogleFonts.cairo(fontSize: 16));
             }),
       ),
