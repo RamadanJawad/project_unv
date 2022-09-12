@@ -12,7 +12,7 @@ class AllSpecialties extends StatefulWidget {
 
 class _AllSpecialtiesState extends State<AllSpecialties> {
   List all_collage = [
-    {"specialization": "كلية الحاسبات وتكنولوجيا المعلومات"},
+    {"specialization": "كلية الحاسبات وتكنولوجيا المعلومات","color":""},
     {"specialization": "كلية التربية"},
     {"specialization": "كلية العلوم التطبيقية"},
     {"specialization": "كلية الاعلام"},
@@ -23,9 +23,6 @@ class _AllSpecialtiesState extends State<AllSpecialties> {
   ];
   late List data;
 
-  List colorSpe = [
-    
-  ];
   @override
   void initState() {
     super.initState();

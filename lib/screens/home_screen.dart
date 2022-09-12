@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen>
                     Expanded(
                       child: CircleAvatar(
                         radius: 100,
-                        backgroundColor: Colors.white,
+                        backgroundColor: Colors.green,
                         child: Image.asset(
                           'images/logo.png',
                         ),
@@ -88,12 +88,17 @@ class _HomeScreenState extends State<HomeScreen>
                 endIndent: 10,
                 indent: 10,
               ),
-              ListTile(
-                title: Text(
-                  "البحث الاجتماعي",
-                  style: GoogleFonts.cairo(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/social_search');
+                },
+                child: ListTile(
+                  title: Text(
+                    "البحث الاجتماعي",
+                    style: GoogleFonts.cairo(),
+                  ),
+                  trailing: Icon(Icons.ac_unit),
                 ),
-                trailing: Icon(Icons.ac_unit),
               ),
               const Divider(
                 color: Colors.grey,
